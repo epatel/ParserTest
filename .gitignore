@@ -1,0 +1,18 @@
+# Generic
+.DS_Store
+*.o
+*.a
+*.dylib
+*.gz
+*.tar
+*.tgz
+*~
+
+# XCode
+build/*
+*.pbxuser
+*.mode?v3
+*.perspectivev3
+*.xcworkspace
+xcuserdata
+*.moved-aside
