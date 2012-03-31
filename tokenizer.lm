@@ -1,0 +1,34 @@
+%{
+
+#import "y.tab.h"
+#import "MessageBlocks.h"
+    
+void yyerror(char *s);
+    
+%}
+
+%%
+
+[0-9]+\.[0-9]* { yylval.value = atof(yytext); return FLOAT; }
+
+[0-9]+ { yylval.value = atof(yytext); return INTEGER; }
+
+[_a-zA-Z0-9]+ { yylval.identifier = [ [NSString stringWithFormat:@"%s", yytext] retain]; return IDENTIFIER; }
+
+[\n\t ] { }
+
+. { return yytext[0]; };
+
+%%
+
+int yywrap() 
+{
+    // This is a place where one can append more text if it would be needed, quit for now
+    return 1;
+}
+
+void yyerror(char *s) 
+{
+    if (ParseTestFailBlock) 
+        ParseTestFailBlock([NSString stringWithFormat:@"%s", s]);
+}
