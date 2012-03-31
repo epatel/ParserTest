@@ -37,6 +37,6 @@ expr : number { $$ = $1; }
 
 number : INTEGER { $$ = $1; }
 | FLOAT { $$ = $1; }
-| IDENTIFIER { if ([$1 isEqualToString:@"pi"]) $$ = M_PI; [$1 release]; }
+| IDENTIFIER { if ([$1 isEqualToString:@"pi"]) $$ = M_PI; else $$ = 0.0; [$1 release]; }
 
 %%
