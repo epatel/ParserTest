@@ -2,7 +2,7 @@
 
 Xcode can handle bison and flex definition files. Xcode can even compile the generated files as Objective-C making it easier to bridge a parser into Objective-C. Pretty nice I think.
 
-This demo shows a simple calculator. `tokenizer.lm` contain the parts for divinding the character stream into parts for the parser which is in the `parser.ym` file.
+This demo shows a simple calculator. `tokenizer.lm` contain the parts for divinding the character stream into parts for the parser which is in the `parser.ym` file. The added `m` on the extension is that detail that makes Xcode compile the generated files as Objective-C files.
 
 To make it a little bit more interesting I added identifiers that is dynamically handled between the tokenizer and parser. In the tokenizer you can see that it will be set as a `retained` string. The parser only knows about `pi` at the moment and everything else will have the value `0.0` 
 
