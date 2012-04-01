@@ -13,7 +13,7 @@ void yyerror(char *s);
 
 [0-9]+ { yylval.value = atof(yytext); return INTEGER; }
 
-[_a-zA-Z0-9]+ { yylval.identifier = [ [NSString stringWithFormat:@"%s", yytext] retain]; return IDENTIFIER; }
+[a-zA-Z]+ { yylval.identifier = [ [NSString stringWithFormat:@"%s", yytext] retain]; return IDENTIFIER; }
 
 [\n\t ] { }
 
