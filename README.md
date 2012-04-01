@@ -20,6 +20,6 @@ The defined destructor is used if the parser need to clean up some intermediate 
 
 One *caveat* I stumbled upon was that I couldn't get "`[[`" to work in the tokenizer, which seem to use that for some internal marker. So instead I use "`[ [`" which may look strange. The line in the tokenizer is this
 
-    [_a-zA-Z0-9]+ { yylval.identifier = [ [NSString stringWithFormat:@"%s", yytext] retain]; return IDENTIFIER; }
+    [a-zA-Z]+ { yylval.identifier = [ [NSString stringWithFormat:@"%s", yytext] retain]; return IDENTIFIER; }
 
 Now I wish I had a task to solve with my own language...
